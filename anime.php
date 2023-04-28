@@ -98,7 +98,7 @@ foreach ($dizinliste as $dosyayolu) { // $dizinliste'ye alınan dosyaları sayfa
 	$_SESSION[$dosyaadi]['anime'] = $ismi;
 	
 	$movie = $dosyayolu;
-	$thumbnail = 'resimler/'.$dosyaadi . '.png';
+	$thumbnail = 'images/'.$dosyaadi . '.png';
 	require 'vendor/autoload.php';
 	if(file_exists($thumbnail)) {
 	}else{

@@ -88,7 +88,7 @@ foreach ($dizinliste as $dosyayolu) { // $dizinliste'ye alınan dosyaları sayfa
 		$isim = strtoupper($isim);
 
 	$movie = $dosyayolu . "/" . $dosyaadi ."-1-bolum.mp4";
-	$thumbnail = 'resimler/'.$dosyaadi . '.png';
+	$thumbnail = 'images/'.$dosyaadi . '.png';
 	require 'vendor/autoload.php';
 	if(file_exists($thumbnail)) {
 	}else{

@@ -26,25 +26,10 @@ $yeniid = str_replace(' ', "", $yeniid);
 
 ?>
 <head>
-<meta property="og:video" content='<?php echo $video; ?>' />
-<meta property="og:video:url" content='<?php echo $video; ?>' />
-<meta property="og:video:secure_url" content='<?php echo $video; ?>' />
-<meta property="og:video:type" content="video.other" />
-<meta property='og:video:width' content='1280'>
-<meta property='og:video:height' content='720'>
 <title><?php echo $isim; ?> - Barış Keser Archives</title>
 <meta name='title' content='<?php echo $isim; ?>'>
 <meta name='description' content=''>
-<meta property='og:site_name' content='Barış Keser Archives'>
-<meta property='og:url' content='https://arhive.bariskeser.com/videos/watch?v=<?php echo $url; ?>'>
 <meta property='og:title' content='<?php echo $isim; ?>'>
-<meta property='og:image' content='https://i.ytimg.com/vi/<?php echo $url; ?>/maxresdefault.jpg'>
-
-<meta property='og:description' content=''>
-<meta property="og:type" content="video.other">
-<meta property='og:video:url' content='<?php echo $video; ?>'>
-<meta property='og:video:secure_url' content='<?php echo $video; ?>'>
-<meta property='og:video:type' content='video.other'>
 <style>
 dom-bind,dom-if,dom-repeat{
 	display:none;
@@ -77,7 +62,7 @@ var art = new Artplayer({
     container: '.artplayer-app',
     url: '<?php echo $yenidosya; ?>',
     title: '<?php echo $isim; ?>',
-    poster: '<?php echo 'resimler/'.$url . '.png';?>',
+    poster: '<?php echo 'images/'.$url . '.png';?>',
     volume: 0.5,
     isLive: false,
     muted: false,
