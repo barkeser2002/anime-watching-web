@@ -66,26 +66,25 @@ background-color: black !important;
 $sayfa = isset($_GET["sayfa"]) ? (int) $_GET["sayfa"] : 1;
 if(empty($sayfa)) { $sayfa = 1; }
 if($sayfa < 1) $sayfa = 1;
-$dizin = glob($yeniyol."/*.{gif,mp4,webp,mov,mkv}", GLOB_BRACE); // Okunacak dizin ve dosya türleri
+$dizin = glob($yeniyol."/*.{gif,mp4,webp,mov,mkv}", GLOB_BRACE);
 
-$sayfabasi_kayit = 24; // sayfa başı gösterilecek kayıt sayısı
-$x = 8; //geçerli sayfanın Önceki Sonraki seçimleri arasında görünmesini istediğiniz adet sayfa butonu
+$sayfabasi_kayit = 24;
+$x = 8;
 $link = "?ismi=" . $ismi . "&sayfa=";
-natsort($dizin); // Dizin Sıralama kuralı diğer sıralama kuralları için https://www.php.net/manual/tr/array.sorting.php
-
+natsort($dizin);
 $toplamkayit = count($dizin);
 $toplamsayfa = ceil($toplamkayit / $sayfabasi_kayit);
 if($sayfa > $toplamsayfa) { $sayfa = 1; }
 $baslangic = ($sayfa-1)*$sayfabasi_kayit;
 $dizinliste = array();
 
-if($dizin){ //$dizin false veya boş değilse  
+if($dizin){ 
     $dizinliste = ($toplamkayit > $sayfabasi_kayit) ? array_slice($dizin,$baslangic,$sayfabasi_kayit) : $dizin;
 } else {
 	echo "Bu dizinde dosya bulunamadı!";
 }
 
-foreach ($dizinliste as $dosyayolu) { // $dizinliste'ye alınan dosyaları sayfaya yazdırıyoruz
+foreach ($dizinliste as $dosyayolu) {
     $dosyaadi = basename($dosyayolu);	
 	$sec = 60;
 	$isim = $dosyaadi;
@@ -119,28 +118,21 @@ foreach ($dizinliste as $dosyayolu) { // $dizinliste'ye alınan dosyaları sayfa
 		if($izlendimii > "0") {
 		echo "<div style='color:red;position: absolute;top: 2px;right: -5px;font-weight: bold;'><h6>İZLENDİ</h6></div>";
 		echo "<div style='position: absolute;bottom: 2px;left: 13px;font-weight: bold;'>". $isim ."</div></a>";
-		
-		}else {
+		}
+		else {
 		echo "<div style='position: absolute;bottom: 2px;left: 13px;font-weight: bold;'>". $isim ."</div></a>";
 		}
-	}else {
+	}
+	else {
 		echo "<div style='position: absolute;bottom: 2px;left: 13px;font-weight: bold;'>". $isim ."</div></a>";
 	}
-	
-	
-	
 	echo "</div>";
-
-	
-	?>
-	<?php
-}?>
+}
+?>
 </div><p>&nbsp;
 <div style="position: absolute;bottom:-70px;left:10px;min-width:250px;height:50px;">
-
 <?php
 echo '<br>';
-//  « İlk  Önceki 1 [2] 3 4 Sonraki Son » butonları oluşturan kodlar
 $sayfala = "";
 if($toplamkayit > $sayfabasi_kayit) {
 	if($sayfa > 1){
